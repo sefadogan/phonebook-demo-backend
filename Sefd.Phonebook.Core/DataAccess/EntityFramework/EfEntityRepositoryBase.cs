@@ -35,6 +35,11 @@ namespace Sefd.Phonebook.Core.DataAccess.EntityFramework
         {
             return await _dbs.Where(where).ToListAsync();
         }
+
+        public async Task<TEntity> GetByIdAsync(int id)
+        {
+            return await _dbs.FindAsync(id);
+        }
         #endregion
     }
 }
