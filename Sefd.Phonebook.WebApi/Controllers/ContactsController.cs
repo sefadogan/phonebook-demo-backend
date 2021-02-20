@@ -22,7 +22,7 @@ namespace Sefd.Phonebook.WebApi.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var result = await _contactService.GetListAsync();
+            var result = await _contactService.GetListAsync(includes: c => c.ContactInformations);
             if (!result.Success)
                 return BadRequest(result.Message);
 
@@ -64,8 +64,16 @@ namespace Sefd.Phonebook.WebApi.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update()
+        public async Task<IActionResult> Update(ContactForUpdateVM contactForUpdateVM)
         {
+            // TODO: Include updating ContactInformation
+
+            var mappedContact = _mapper.Map<IContactForUpdateDto>(contactForUpdateVM);
+
+            var result = await _contactService.UpdatePartialAsync(mappedContact.Id, mappedContact);
+            if (!result.Success)
+                return BadRequest(result.Message);
+
             return Ok();
         }
     }

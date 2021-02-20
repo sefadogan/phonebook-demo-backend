@@ -15,36 +15,44 @@ namespace Sefd.Phonebook.Core.DataAccess.EntityFramework
     {
         #region Private Members
         private readonly DbContext _context;
-        private readonly DbSet<TEntity> _dbs;
+        private readonly DbSet<TEntity> _dbSet;
         #endregion
 
         #region Construction Member
         public EfEntityRepositoryBase()
         {
             _context = new TContext();
-            _dbs = _context.Set<TEntity>();
+            _dbSet = _context.Set<TEntity>();
         }
         #endregion
 
         #region Methods
-        public async Task<ICollection<TEntity>> ListAsync()
+        public async Task<ICollection<TEntity>> ListAsync(
+            Expression<Func<TEntity, bool>> where = null,
+            params Expression<Func<TEntity, object>>[] includes)
         {
-            return await _dbs.ToListAsync();
-        }
+            IQueryable<TEntity> query = _context.Set<TEntity>();
+            if (includes != null && includes.Length > 0)
+            {
+                foreach (Expression<Func<TEntity, object>> include in includes)
+                {
+                    query = query.Include(include);
+                }
+            }
 
-        public async Task<ICollection<TEntity>> ListAsync(Expression<Func<TEntity, bool>> where)
-        {
-            return await _dbs.Where(where).ToListAsync();
+            return where == null 
+                ? await query.ToListAsync() 
+                : await query.Where(where).ToListAsync();
         }
 
         public async Task<TEntity> GetByIdAsync(int id)
         {
-            return await _dbs.FindAsync(id);
+            return await _dbSet.FindAsync(id);
         }
 
         public async Task AddAsync(TEntity entity)
         {
-            await _dbs.AddAsync(entity);
+            await _dbSet.AddAsync(entity);
             await SaveChangesAsync();
         }
 
@@ -52,11 +60,19 @@ namespace Sefd.Phonebook.Core.DataAccess.EntityFramework
         {
             await Task.Run(() =>
             {
-                _dbs.Update(entity);
-                SaveChangesAsync();
+                _dbSet.Update(entity);
+                _context.Entry(entity).State = EntityState.Modified;
+                _context.SaveChanges();
             });
         }
 
+        public async Task UpdatePartialAsync(int id, object obj)
+        {
+            var entity = await GetByIdAsync(id);
+            _context.Entry(entity).CurrentValues.SetValues(obj);
+
+            await SaveChangesAsync();
+        }
 
         private Task SaveChangesAsync() => _context.SaveChangesAsync();
         #endregion

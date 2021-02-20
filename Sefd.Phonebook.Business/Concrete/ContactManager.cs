@@ -10,6 +10,7 @@ using Sefd.Phonebook.Entities.Concretes.Dtos.Contact;
 using Sefd.Phonebook.Entities.Concretes.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Sefd.Phonebook.Business.Concrete
@@ -23,11 +24,13 @@ namespace Sefd.Phonebook.Business.Concrete
             _contactDal = contactDal;
         }
 
-        public async Task<IDataResult<ICollection<IContactForViewDto>>> GetListAsync()
+        public async Task<IDataResult<ICollection<IContactForViewDto>>> GetListAsync(
+            Expression<Func<Contact, bool>> where = null,
+            params Expression<Func<Contact, object>>[] includes)
         {
             ICollection<IContactForViewDto> contactDtos = new List<IContactForViewDto>();
 
-            var contacts = await _contactDal.ListAsync();
+            var contacts = await _contactDal.ListAsync(where, includes);
             foreach (var contact in contacts)
             {
                 var mappedContact = _mapper.Map<ContactForViewDto>(contact);
@@ -62,6 +65,13 @@ namespace Sefd.Phonebook.Business.Concrete
             contact.IsDeleted = true;
 
             await _contactDal.UpdateAsync(contact);
+
+            return new SuccessResult();
+        }
+
+        public async Task<ISuccessResult> UpdatePartialAsync(int id, IContactForUpdateDto contactForUpdateDto)
+        {
+            await _contactDal.UpdatePartialAsync(id, contactForUpdateDto);
 
             return new SuccessResult();
         }
