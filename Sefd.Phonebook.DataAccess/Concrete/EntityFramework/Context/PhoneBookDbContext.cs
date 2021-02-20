@@ -4,14 +4,14 @@ using Sefd.Phonebook.Entities.Concretes.Entities;
 
 namespace Sefd.Phonebook.DataAccess.Concrete.EntityFramework.Context
 {
-    public class PhoneBookDbContext : DbContext
+    public class PhonebookDbContext : DbContext
     {
         #region Constructors
-        public PhoneBookDbContext()
+        public PhonebookDbContext()
         {
         }
 
-        public PhoneBookDbContext(DbContextOptions<PhoneBookDbContext> options)
+        public PhonebookDbContext(DbContextOptions<PhonebookDbContext> options)
             : base(options)
         {
         }

@@ -8,4 +8,8 @@
     <Folder Include="Abstracts\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Sefd.Phonebook.Core\Sefd.Phonebook.Core.csproj" />
+  </ItemGroup>
+
 </Project>

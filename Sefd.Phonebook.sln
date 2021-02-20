@@ -5,13 +5,13 @@ VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sefd.Phonebook.WebApi", "Sefd.Phonebook.WebApi\Sefd.Phonebook.WebApi.csproj", "{9CE6A593-4F52-4FCC-BC31-1752FE37A12B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sefd.Phonebook.Common", "Sefd.Phonebook.Common\Sefd.Phonebook.Common.csproj", "{94E01F6C-78DB-41F8-89B2-0DC987E9EB35}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sefd.Phonebook.Business", "Sefd.Phonebook.Business\Sefd.Phonebook.Business.csproj", "{1C41CFC1-7DCC-4C07-A94D-D879A514B17A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sefd.Phonebook.DataAccess", "Sefd.Phonebook.DataAccess\Sefd.Phonebook.DataAccess.csproj", "{34D29323-BE64-487A-B612-23BE7553DA72}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sefd.Phonebook.Entities", "Sefd.Phonebook.Entities\Sefd.Phonebook.Entities.csproj", "{F93483FE-416B-4DC1-A05D-91FC1882DE0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sefd.Phonebook.Core", "Sefd.Phonebook.Core\Sefd.Phonebook.Core.csproj", "{03AE16B3-91A2-4623-9425-9A1DFD575086}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		{9CE6A593-4F52-4FCC-BC31-1752FE37A12B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CE6A593-4F52-4FCC-BC31-1752FE37A12B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CE6A593-4F52-4FCC-BC31-1752FE37A12B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{94E01F6C-78DB-41F8-89B2-0DC987E9EB35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{94E01F6C-78DB-41F8-89B2-0DC987E9EB35}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{94E01F6C-78DB-41F8-89B2-0DC987E9EB35}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{94E01F6C-78DB-41F8-89B2-0DC987E9EB35}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1C41CFC1-7DCC-4C07-A94D-D879A514B17A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1C41CFC1-7DCC-4C07-A94D-D879A514B17A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C41CFC1-7DCC-4C07-A94D-D879A514B17A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{F93483FE-416B-4DC1-A05D-91FC1882DE0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F93483FE-416B-4DC1-A05D-91FC1882DE0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F93483FE-416B-4DC1-A05D-91FC1882DE0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03AE16B3-91A2-4623-9425-9A1DFD575086}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03AE16B3-91A2-4623-9425-9A1DFD575086}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03AE16B3-91A2-4623-9425-9A1DFD575086}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03AE16B3-91A2-4623-9425-9A1DFD575086}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

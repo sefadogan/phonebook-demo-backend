@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Sefd.Phonebook.Core.Entities;
+using System;
 
 namespace Sefd.Phonebook.Entities.Concretes.Entities
 {
-    public class BaseEntity
+    public class BaseEntity : IEntity
     {
         public int Id { get; set; }
         public DateTime CreatedDate { get; set; }
