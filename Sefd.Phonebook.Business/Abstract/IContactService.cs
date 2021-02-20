@@ -12,5 +12,6 @@ namespace Sefd.Phonebook.Business.Abstract
     {
         Task<IDataResult<ICollection<IContactDto>>> GetList();
         Task<IDataResult<IContactDto>> GetById(int id);
+        Task<ISuccessResult> AddAsync(IContactDto contactDto);
     }
 }

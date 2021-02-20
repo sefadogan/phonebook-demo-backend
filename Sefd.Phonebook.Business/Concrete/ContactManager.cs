@@ -45,5 +45,14 @@ namespace Sefd.Phonebook.Business.Concrete
 
             return new DataResult<IContactDto>(mappedContact, true);
         }
+
+        public async Task<ISuccessResult> AddAsync(IContactDto contactDto)
+        {
+            var mappedContact = _mapper.Map<Contact>(contactDto);
+
+            await _contactDal.AddAsync(mappedContact);
+
+            return new SuccessResult();
+        }
     }
 }

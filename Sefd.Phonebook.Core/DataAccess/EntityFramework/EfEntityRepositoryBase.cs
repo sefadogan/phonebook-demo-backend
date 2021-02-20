@@ -40,6 +40,14 @@ namespace Sefd.Phonebook.Core.DataAccess.EntityFramework
         {
             return await _dbs.FindAsync(id);
         }
+
+        public async Task AddAsync(TEntity entity)
+        {
+            await _dbs.AddAsync(entity);
+            await SaveChangesAsync();
+        }
+
+        private Task SaveChangesAsync() => _context.SaveChangesAsync();
         #endregion
     }
 }
