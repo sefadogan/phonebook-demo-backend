@@ -6,7 +6,6 @@ namespace Sefd.Phonebook.Entities.Concretes.Dtos.Contact
 {
     public class ContactForViewDto : IContactForViewDto
     {
-        public int ContactInformationId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string CompanyName { get; set; }

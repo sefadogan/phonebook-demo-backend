@@ -6,7 +6,6 @@ namespace Sefd.Phonebook.Entities.Abstracts.ViewModels.Contact
 {
     public interface IContactForViewVM : IViewModel
     {
-         int ContactInformationId { get; set; }
          string FirstName { get; set; }
          string LastName { get; set; }
          string CompanyName { get; set; }
