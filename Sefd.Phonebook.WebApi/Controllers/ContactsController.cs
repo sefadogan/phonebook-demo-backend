@@ -4,6 +4,7 @@ using Sefd.Phonebook.Business.Abstract;
 using Sefd.Phonebook.Entities.Abstracts.Dtos;
 using Sefd.Phonebook.Entities.Abstracts.ViewModels;
 using Sefd.Phonebook.Entities.Abstracts.ViewModels.Contact;
+using Sefd.Phonebook.Entities.Concretes.ViewModels.Contact;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -48,8 +49,14 @@ namespace Sefd.Phonebook.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> Create(ContactForCreateVM contactForCreateVM)
         {
+            var mappedContact = _mapper.Map<IContactDto>(contactForCreateVM);
+
+            var result = await _contactService.AddAsync(mappedContact);
+            if (!result.Success)
+                return BadRequest(result.Message);
+
             return Ok();
         }
 
