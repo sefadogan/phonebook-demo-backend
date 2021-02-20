@@ -48,13 +48,12 @@ namespace Sefd.Phonebook.Business.Concrete
             return new DataResult<IContactForViewDto>(mappedContact, true);
         }
 
-        //public async Task<ISuccessResult> AddAsync(IContactDto contactDto)
-        //{
-        //    var mappedContact = _mapper.Map<Contact>(contactDto);
+        public async Task<ISuccessResult> AddAsync(IContactForCreateDto contactForCreateDto)
+        {
+            var mappedContact = _mapper.Map<Contact>(contactForCreateDto);
+            await _contactDal.AddAsync(mappedContact);
 
-        //    await _contactDal.AddAsync(mappedContact);
-
-        //    return new SuccessResult();
-        //}
+            return new SuccessResult();
+        }
     }
 }

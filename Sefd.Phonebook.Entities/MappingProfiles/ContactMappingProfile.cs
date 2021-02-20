@@ -14,8 +14,9 @@ namespace Sefd.Phonebook.Entities.MappingProfiles
             CreateMap<Contact, ContactForViewDto>().ReverseMap();
             CreateMap<ContactForViewDto, ContactForViewVM>().ReverseMap();
             CreateMap<IContactForViewDto, IContactForViewVM>().ReverseMap();
-            CreateMap<ContactForCreateVM, IContactForViewDto>().ReverseMap();
+            CreateMap<ContactForCreateVM, IContactForCreateDto>().ReverseMap();
             CreateMap<Contact, IContactForViewDto>().ReverseMap();
+            CreateMap<Contact, IContactForCreateDto>().ReverseMap();
         }
     }
 }
