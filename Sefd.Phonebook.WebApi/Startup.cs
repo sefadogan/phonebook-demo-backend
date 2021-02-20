@@ -29,6 +29,10 @@ namespace Sefd.Phonebook.WebApi
             services.AddAutoMapper(typeof(Startup));
             EntityMappingProfilesManager.AddProfiles(services);
 
+            services.AddControllers()
+                .AddNewtonsoftJson(options =>
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -39,6 +43,7 @@ namespace Sefd.Phonebook.WebApi
 
             // Formating urls to lowercase
             services.AddRouting(options => options.LowercaseUrls = true);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
