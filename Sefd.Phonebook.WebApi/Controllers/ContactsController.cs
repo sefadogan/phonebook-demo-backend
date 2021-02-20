@@ -28,5 +28,34 @@ namespace Sefd.Phonebook.WebApi.Controllers
             var mappedContactVMs = _mapper.Map<ICollection<IContactVM>>(result.Data);
             return Ok(mappedContactVMs);
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var result = await _contactService.GetById(id);
+            if (!result.Success)
+                return BadRequest(result.Message);
+
+            var mappedContactVMs = _mapper.Map<IContactVM>(result.Data);
+            return Ok(mappedContactVMs);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update()
+        {
+            return Ok();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create()
+        {
+            return Ok();
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete()
+        {
+            return Ok();
+        }
     }
 }
