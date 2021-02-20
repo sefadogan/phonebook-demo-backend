@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sefd.Phonebook.Business", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sefd.Phonebook.DataAccess", "Sefd.Phonebook.DataAccess\Sefd.Phonebook.DataAccess.csproj", "{34D29323-BE64-487A-B612-23BE7553DA72}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sefd.Phonebook.Entities", "Sefd.Phonebook.Entities\Sefd.Phonebook.Entities.csproj", "{F93483FE-416B-4DC1-A05D-91FC1882DE0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{34D29323-BE64-487A-B612-23BE7553DA72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34D29323-BE64-487A-B612-23BE7553DA72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34D29323-BE64-487A-B612-23BE7553DA72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F93483FE-416B-4DC1-A05D-91FC1882DE0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F93483FE-416B-4DC1-A05D-91FC1882DE0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F93483FE-416B-4DC1-A05D-91FC1882DE0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F93483FE-416B-4DC1-A05D-91FC1882DE0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
