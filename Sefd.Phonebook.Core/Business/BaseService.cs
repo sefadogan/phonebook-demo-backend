@@ -1,11 +1,8 @@
 ﻿using AutoMapper;
-using Sefd.Phonebook.Core.Entities;
 
 namespace Sefd.Phonebook.Core.Business
 {
-    public class BaseService<TEntity, TDto> : IBaseService<TEntity, TDto>
-          where TEntity : class, IEntity, new()
-          where TDto : class, IDto, new()
+    public class BaseService : IBaseService
     {
         public readonly IMapper _mapper;
 

@@ -1,17 +1,15 @@
 ﻿using Sefd.Phonebook.Core.Business;
 using Sefd.Phonebook.Core.Utils.Results;
-using Sefd.Phonebook.Entities.Abstracts.Dtos;
-using Sefd.Phonebook.Entities.Concretes.Dtos;
-using Sefd.Phonebook.Entities.Concretes.Entities;
+using Sefd.Phonebook.Entities.Abstracts.Dtos.Contact;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Sefd.Phonebook.Business.Abstract
 {
-    public interface IContactService : IBaseService<Contact, ContactDto>
+    public interface IContactService : IBaseService
     {
-        Task<IDataResult<ICollection<IContactDto>>> GetList();
-        Task<IDataResult<IContactDto>> GetById(int id);
-        Task<ISuccessResult> AddAsync(IContactDto contactDto);
+        Task<IDataResult<ICollection<IContactForViewDto>>> GetList();
+        Task<IDataResult<IContactForViewDto>> GetById(int id);
+        //Task<ISuccessResult> AddAsync(IContactDto contactDto);
     }
 }
