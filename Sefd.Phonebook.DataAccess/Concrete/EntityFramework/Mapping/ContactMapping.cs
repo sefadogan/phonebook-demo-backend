@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Sefd.Phonebook.Core.Constants;
 using Sefd.Phonebook.Entities.Concretes.Entities;
+using System;
 
 namespace Sefd.Phonebook.DataAccess.Concrete.EntityFramework.Mapping
 {
@@ -15,7 +16,7 @@ namespace Sefd.Phonebook.DataAccess.Concrete.EntityFramework.Mapping
             builder.Property(b => b.LastName).IsRequired().HasMaxLength(50);
             builder.Property(b => b.CompanyName).IsRequired(false).HasMaxLength(100);
 
-            builder.Property(b => b.CreatedDate).HasColumnType(EntityColumnTypes.DATETIME);
+            builder.Property(b => b.CreatedDate).HasDefaultValue(DateTime.Now).HasColumnType(EntityColumnTypes.DATETIME);
             builder.Property(b => b.UpdatedDate).IsRequired(false).HasColumnType(EntityColumnTypes.DATETIME);
             
             builder.HasQueryFilter(p => p.IsDeleted == false);
