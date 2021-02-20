@@ -26,6 +26,11 @@ namespace Sefd.Phonebook.Core.DataAccess.EntityFramework
         #endregion
 
         #region Methods
+        public async Task<ICollection<TEntity>> ListAsync()
+        {
+            return await _dbs.ToListAsync();
+        }
+
         public async Task<ICollection<TEntity>> ListAsync(Expression<Func<TEntity, bool>> where)
         {
             return await _dbs.Where(where).ToListAsync();
