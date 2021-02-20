@@ -35,7 +35,7 @@ namespace Sefd.Phonebook.WebApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Sefd.Phonebook.WebApi", Version = "v1" });
             });
 
-            DotNetCoresBusinessModule.Load(services);
+            DotNetCoreBusinessModule.Load(services);
             //services.AddSingleton<IContactDal, EfContactDal>();
             //services.AddSingleton<IContactService, ContactManager>();
         }
