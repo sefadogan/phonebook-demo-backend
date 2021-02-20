@@ -1,7 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sefd.Phonebook.DataAccess\Sefd.Phonebook.DataAccess.csproj" />
+    <ProjectReference Include="..\Sefd.Phonebook.Entities\Sefd.Phonebook.Entities.csproj" />
+  </ItemGroup>
 
 </Project>
