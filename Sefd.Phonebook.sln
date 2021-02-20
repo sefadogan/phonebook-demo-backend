@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sefd.Phonebook.WebApi", "Sefd.Phonebook.WebApi\Sefd.Phonebook.WebApi.csproj", "{9CE6A593-4F52-4FCC-BC31-1752FE37A12B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sefd.Phonebook.WebApi", "Sefd.Phonebook.WebApi\Sefd.Phonebook.WebApi.csproj", "{9CE6A593-4F52-4FCC-BC31-1752FE37A12B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sefd.Phonebook.Common", "Sefd.Phonebook.Common\Sefd.Phonebook.Common.csproj", "{94E01F6C-78DB-41F8-89B2-0DC987E9EB35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sefd.Phonebook.Business", "Sefd.Phonebook.Business\Sefd.Phonebook.Business.csproj", "{1C41CFC1-7DCC-4C07-A94D-D879A514B17A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sefd.Phonebook.DataAccess", "Sefd.Phonebook.DataAccess\Sefd.Phonebook.DataAccess.csproj", "{34D29323-BE64-487A-B612-23BE7553DA72}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{9CE6A593-4F52-4FCC-BC31-1752FE37A12B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CE6A593-4F52-4FCC-BC31-1752FE37A12B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CE6A593-4F52-4FCC-BC31-1752FE37A12B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94E01F6C-78DB-41F8-89B2-0DC987E9EB35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94E01F6C-78DB-41F8-89B2-0DC987E9EB35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94E01F6C-78DB-41F8-89B2-0DC987E9EB35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94E01F6C-78DB-41F8-89B2-0DC987E9EB35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C41CFC1-7DCC-4C07-A94D-D879A514B17A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C41CFC1-7DCC-4C07-A94D-D879A514B17A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C41CFC1-7DCC-4C07-A94D-D879A514B17A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C41CFC1-7DCC-4C07-A94D-D879A514B17A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34D29323-BE64-487A-B612-23BE7553DA72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34D29323-BE64-487A-B612-23BE7553DA72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34D29323-BE64-487A-B612-23BE7553DA72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34D29323-BE64-487A-B612-23BE7553DA72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
