@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Sefd.Phonebook.Business.Abstract;
-using Sefd.Phonebook.Entities.Abstracts.Dtos;
 using Sefd.Phonebook.Entities.Abstracts.Dtos.Contact;
-using Sefd.Phonebook.Entities.Abstracts.ViewModels;
 using Sefd.Phonebook.Entities.Abstracts.ViewModels.Contact;
 using Sefd.Phonebook.Entities.Concretes.ViewModels.Contact;
 using System.Collections.Generic;
@@ -24,7 +22,7 @@ namespace Sefd.Phonebook.WebApi.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var result = await _contactService.GetList();
+            var result = await _contactService.GetListAsync();
             if (!result.Success)
                 return BadRequest(result.Message);
 
@@ -35,18 +33,12 @@ namespace Sefd.Phonebook.WebApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var result = await _contactService.GetById(id);
+            var result = await _contactService.GetByIdAsync(id);
             if (!result.Success)
                 return BadRequest(result.Message);
 
             var mappedContactVMs = _mapper.Map<IContactForViewVM>(result.Data);
             return Ok(mappedContactVMs);
-        }
-
-        [HttpPut]
-        public async Task<IActionResult> Update()
-        {
-            return Ok();
         }
 
         [HttpPost]
@@ -61,8 +53,18 @@ namespace Sefd.Phonebook.WebApi.Controllers
             return Ok();
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> Delete()
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var result = await _contactService.SoftDeleteAsync(id);
+            if (!result.Success)
+                return BadRequest(result.Message);
+
+            return Ok();
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update()
         {
             return Ok();
         }

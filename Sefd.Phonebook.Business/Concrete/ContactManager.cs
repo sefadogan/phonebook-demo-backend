@@ -23,7 +23,7 @@ namespace Sefd.Phonebook.Business.Concrete
             _contactDal = contactDal;
         }
 
-        public async Task<IDataResult<ICollection<IContactForViewDto>>> GetList()
+        public async Task<IDataResult<ICollection<IContactForViewDto>>> GetListAsync()
         {
             ICollection<IContactForViewDto> contactDtos = new List<IContactForViewDto>();
 
@@ -37,7 +37,7 @@ namespace Sefd.Phonebook.Business.Concrete
             return new DataResult<ICollection<IContactForViewDto>>(contactDtos, true);
         }
 
-        public async Task<IDataResult<IContactForViewDto>> GetById(int id)
+        public async Task<IDataResult<IContactForViewDto>> GetByIdAsync(int id)
         {
             if (id <= 0)
                 throw new ArgumentException("Id cannot be zero or less!");
@@ -52,6 +52,16 @@ namespace Sefd.Phonebook.Business.Concrete
         {
             var mappedContact = _mapper.Map<Contact>(contactForCreateDto);
             await _contactDal.AddAsync(mappedContact);
+
+            return new SuccessResult();
+        }
+
+        public async Task<ISuccessResult> SoftDeleteAsync(int id)
+        {
+            var contact = await _contactDal.GetByIdAsync(1);
+            contact.IsDeleted = true;
+
+            await _contactDal.UpdateAsync(contact);
 
             return new SuccessResult();
         }

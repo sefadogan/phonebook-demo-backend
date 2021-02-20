@@ -13,5 +13,6 @@ namespace Sefd.Phonebook.Core.DataAccess
         Task<ICollection<TEntity>> ListAsync(Expression<Func<TEntity, bool>> where);
         Task<TEntity> GetByIdAsync(int id);
         Task AddAsync(TEntity entity);
+        Task UpdateAsync(TEntity entity);
     }
 }

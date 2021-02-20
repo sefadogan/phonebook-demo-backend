@@ -8,8 +8,9 @@ namespace Sefd.Phonebook.Business.Abstract
 {
     public interface IContactService : IBaseService
     {
-        Task<IDataResult<ICollection<IContactForViewDto>>> GetList();
-        Task<IDataResult<IContactForViewDto>> GetById(int id);
+        Task<IDataResult<ICollection<IContactForViewDto>>> GetListAsync();
+        Task<IDataResult<IContactForViewDto>> GetByIdAsync(int id);
         Task<ISuccessResult> AddAsync(IContactForCreateDto contactForCreateDto);
+        Task<ISuccessResult> SoftDeleteAsync(int id);
     }
 }

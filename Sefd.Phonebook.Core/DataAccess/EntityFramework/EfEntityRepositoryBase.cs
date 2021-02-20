@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Sefd.Phonebook.Core.DataAccess.EntityFramework
@@ -46,6 +47,16 @@ namespace Sefd.Phonebook.Core.DataAccess.EntityFramework
             await _dbs.AddAsync(entity);
             await SaveChangesAsync();
         }
+
+        public async Task UpdateAsync(TEntity entity)
+        {
+            await Task.Run(() =>
+            {
+                _dbs.Update(entity);
+                SaveChangesAsync();
+            });
+        }
+
 
         private Task SaveChangesAsync() => _context.SaveChangesAsync();
         #endregion
