@@ -1,16 +1,15 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Sefd.Phonebook.Business.Abstract;
+using Sefd.Phonebook.Business.Concrete;
+using Sefd.Phonebook.Business.DependencyResolvers.DotNetCore;
+using Sefd.Phonebook.DataAccess.Abstract;
+using Sefd.Phonebook.DataAccess.Concrete.EntityFramework;
+using Sefd.Phonebook.Entities.MappingProfiles;
 
 namespace Sefd.Phonebook.WebApi
 {
@@ -26,12 +25,19 @@ namespace Sefd.Phonebook.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //inject automapper
+            services.AddAutoMapper(typeof(Startup));
+            EntityMappingProfilesManager.AddProfiles(services);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Sefd.Phonebook.WebApi", Version = "v1" });
             });
+
+            DotNetCoresBusinessModule.Load(services);
+            //services.AddSingleton<IContactDal, EfContactDal>();
+            //services.AddSingleton<IContactService, ContactManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

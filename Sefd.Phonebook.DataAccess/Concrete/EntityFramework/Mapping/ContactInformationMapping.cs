@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Sefd.Phonebook.Common.Constants;
+using Sefd.Phonebook.Core.Constants;
 using Sefd.Phonebook.Entities.Concretes.Entities;
 
 namespace Sefd.Phonebook.DataAccess.Concrete.EntityFramework.Mapping
