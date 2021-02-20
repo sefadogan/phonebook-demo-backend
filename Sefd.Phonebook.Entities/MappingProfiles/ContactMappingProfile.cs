@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using Sefd.Phonebook.Entities.Abstracts.Dtos;
-using Sefd.Phonebook.Entities.Abstracts.ViewModels;
+using Sefd.Phonebook.Entities.Abstracts.ViewModels.Contact;
 using Sefd.Phonebook.Entities.Concretes.Dtos;
 using Sefd.Phonebook.Entities.Concretes.Entities;
-using Sefd.Phonebook.Entities.Concretes.ViewModels;
+using Sefd.Phonebook.Entities.Concretes.ViewModels.Contact;
 
 namespace Sefd.Phonebook.Entities.MappingProfiles
 {
@@ -12,8 +12,8 @@ namespace Sefd.Phonebook.Entities.MappingProfiles
         public ContactMappingProfile()
         {
             CreateMap<Contact, ContactDto>().ReverseMap();
-            CreateMap<ContactDto, ContactVM>().ReverseMap();
-            CreateMap<IContactDto, IContactVM>().ReverseMap();
+            CreateMap<ContactDto, ContactForViewVM>().ReverseMap();
+            CreateMap<IContactDto, IContactForViewVM>().ReverseMap();
         }
     }
 }

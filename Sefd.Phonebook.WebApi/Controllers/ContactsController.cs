@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Sefd.Phonebook.Business.Abstract;
 using Sefd.Phonebook.Entities.Abstracts.Dtos;
 using Sefd.Phonebook.Entities.Abstracts.ViewModels;
+using Sefd.Phonebook.Entities.Abstracts.ViewModels.Contact;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -25,7 +26,7 @@ namespace Sefd.Phonebook.WebApi.Controllers
             if (!result.Success)
                 return BadRequest(result.Message);
 
-            var mappedContactVMs = _mapper.Map<ICollection<IContactVM>>(result.Data);
+            var mappedContactVMs = _mapper.Map<ICollection<IContactForViewVM>>(result.Data);
             return Ok(mappedContactVMs);
         }
 
@@ -36,7 +37,7 @@ namespace Sefd.Phonebook.WebApi.Controllers
             if (!result.Success)
                 return BadRequest(result.Message);
 
-            var mappedContactVMs = _mapper.Map<IContactVM>(result.Data);
+            var mappedContactVMs = _mapper.Map<IContactForViewVM>(result.Data);
             return Ok(mappedContactVMs);
         }
 
