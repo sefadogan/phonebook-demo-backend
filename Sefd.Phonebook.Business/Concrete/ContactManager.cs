@@ -6,6 +6,7 @@ using Sefd.Phonebook.DataAccess.Abstract;
 using Sefd.Phonebook.Entities.Abstracts.Dtos;
 using Sefd.Phonebook.Entities.Concretes.Dtos;
 using Sefd.Phonebook.Entities.Concretes.Entities;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -27,11 +28,22 @@ namespace Sefd.Phonebook.Business.Concrete
             var contacts = await _contactDal.ListAsync();
             foreach (var contact in contacts)
             {
-                var convertedContacts = _mapper.Map<ContactDto>(contact);
-                contactDtos.Add(convertedContacts);
+                var mappedContact = _mapper.Map<ContactDto>(contact);
+                contactDtos.Add(mappedContact);
             }
 
             return new DataResult<ICollection<IContactDto>>(contactDtos, true);
+        }
+
+        public async Task<IDataResult<IContactDto>> GetById(int id)
+        {
+            if (id <= 0)
+                throw new ArgumentException("Id cannot be zero or less!");
+
+            var contact = await _contactDal.GetByIdAsync(id);
+            var mappedContact = _mapper.Map<ContactDto>(contact);
+
+            return new DataResult<IContactDto>(mappedContact, true);
         }
     }
 }

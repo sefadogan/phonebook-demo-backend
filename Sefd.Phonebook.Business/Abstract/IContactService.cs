@@ -11,5 +11,6 @@ namespace Sefd.Phonebook.Business.Abstract
     public interface IContactService : IBaseService<Contact, ContactDto>
     {
         Task<IDataResult<ICollection<IContactDto>>> GetList();
+        Task<IDataResult<IContactDto>> GetById(int id);
     }
 }
