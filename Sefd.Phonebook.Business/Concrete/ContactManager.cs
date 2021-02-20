@@ -27,7 +27,7 @@ namespace Sefd.Phonebook.Business.Concrete
             var contacts = await _contactDal.ListAsync();
             foreach (var contact in contacts)
             {
-                var convertedContacts = _mapper.Map<Contact, ContactDto>(contact);
+                var convertedContacts = _mapper.Map<ContactDto>(contact);
                 contactDtos.Add(convertedContacts);
             }
 

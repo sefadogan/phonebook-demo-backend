@@ -25,7 +25,7 @@ namespace Sefd.Phonebook.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //inject automapper
+            // Inject AutoMapper
             services.AddAutoMapper(typeof(Startup));
             EntityMappingProfilesManager.AddProfiles(services);
 
@@ -36,8 +36,6 @@ namespace Sefd.Phonebook.WebApi
             });
 
             DotNetCoreBusinessModule.Load(services);
-            //services.AddSingleton<IContactDal, EfContactDal>();
-            //services.AddSingleton<IContactService, ContactManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -25,7 +25,7 @@ namespace Sefd.Phonebook.WebApi.Controllers
             if (!result.Success)
                 return BadRequest(result.Message);
 
-            var mappedContactVMs = _mapper.Map<ICollection<IContactDto>, ICollection<IContactVM>>(result.Data);
+            var mappedContactVMs = _mapper.Map<ICollection<IContactVM>>(result.Data);
             return Ok(mappedContactVMs);
         }
     }
