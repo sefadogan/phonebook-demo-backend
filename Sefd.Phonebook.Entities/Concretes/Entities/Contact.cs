@@ -10,13 +10,13 @@ namespace Sefd.Phonebook.Entities.Concretes.Entities
         public string LastName { get; set; }
         public string CompanyName { get; set; }
 
-        public virtual ICollection<ContactInformation> ContactInformations { get; set; }
+        public virtual IList<ContactInformation> ContactInformations { get; set; }
         #endregion
 
         #region Constructors
         public Contact()
         {
-            ContactInformations = new HashSet<ContactInformation>();
+            ContactInformations = new List<ContactInformation>();
         }
         #endregion
     }
