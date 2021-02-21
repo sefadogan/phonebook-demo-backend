@@ -40,10 +40,12 @@ namespace Sefd.Phonebook.WebApi
                 options.AddPolicy("AllowOrigin", builder =>
                 {
                     builder.WithOrigins("http://localhost:3000");
+                    builder.WithOrigins("http://localhost:3001");
                 });
                 options.AddPolicy("Methods", builder =>
                 {
                     builder.WithOrigins("http://localhost:3000");
+                    builder.WithOrigins("http://localhost:3001");
                 });
             });
 
@@ -69,9 +71,15 @@ namespace Sefd.Phonebook.WebApi
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Sefd.Phonebook.WebApi v1"));
             }
 
-             app.UseCors(builder =>
+            app.UseCors(builder =>
             {
                 builder.WithOrigins("http://localhost:3000").AllowAnyHeader();
+                builder.WithOrigins("http://localhost:3001").AllowAnyHeader();
+
+
+
+                builder.WithOrigins("http://localhost:3000").AllowAnyMethod();
+                builder.WithOrigins("http://localhost:3001").AllowAnyMethod();
             });
 
             app.UseHttpsRedirection();

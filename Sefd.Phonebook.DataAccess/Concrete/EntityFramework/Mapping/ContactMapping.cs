@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Sefd.Phonebook.Core.Constants;
 using Sefd.Phonebook.Entities.Concretes.Entities;
 using System;
+using System.Collections.Generic;
 
 namespace Sefd.Phonebook.DataAccess.Concrete.EntityFramework.Mapping
 {
@@ -18,8 +19,24 @@ namespace Sefd.Phonebook.DataAccess.Concrete.EntityFramework.Mapping
 
             builder.Property(b => b.CreatedDate).HasDefaultValue(DateTime.Now).HasColumnType(EntityColumnTypes.DATETIME);
             builder.Property(b => b.UpdatedDate).IsRequired(false).HasColumnType(EntityColumnTypes.DATETIME);
-            
+
             builder.HasQueryFilter(p => p.IsDeleted == false);
+
+            builder.HasData(new Contact
+            {
+                Id = 1,
+                CompanyName = "Itelligence Türkiye",
+                FirstName = "Sefa",
+                LastName = "DOĞAN",
+            });
+
+            builder.HasData(new Contact
+            {
+                Id = 2,
+                CompanyName = "Yer Altı",
+                FirstName = "Polat",
+                LastName = "ALEMDAR",
+            });
         }
     }
 }
