@@ -1,6 +1,10 @@
 # Phonebook Demo Backend
  Hey, It's a Phonebook demo project.
  
+## Prerequisite
+
+.NET 5.0
+ 
 ## Installation
 
 In the package manager console, select 'DataAccess' layer as a default project and then run:
