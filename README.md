@@ -5,7 +5,7 @@
 
 .NET 5.0
  
-## Installation
+## Before run the project
 
 In the package manager console, select 'DataAccess' layer as a default project and then run:
 
