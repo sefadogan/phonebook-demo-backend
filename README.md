@@ -11,7 +11,7 @@ In the package manager console, select 'DataAccess' layer as a default project a
 
 ### `update-database`
 
-Your database will be installed After this command finished.
+Your database will be created After this command finished.
 
 If you have an issue while running this command, please check out connectionString in the 'PhonebookDbContext.cs' file.\
 Or google it with the error message :)
