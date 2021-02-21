@@ -17,3 +17,6 @@ Or google it with the error message :)
 In the package manager console, select 'DataAccess' layer as a default project again and then run:
 
 ### `add-migration foo`
+
+Best,
+Sefa
