@@ -18,5 +18,6 @@ In the package manager console, select 'DataAccess' layer as a default project a
 
 ### `add-migration foo`
 
-Best,
+\
+Best,\
 Sefa
