@@ -61,7 +61,7 @@ namespace Sefd.Phonebook.Business.Concrete
 
         public async Task<ISuccessResult> SoftDeleteAsync(int id)
         {
-            var contact = await _contactDal.GetByIdAsync(1);
+            var contact = await _contactDal.GetByIdAsync(id);
             contact.IsDeleted = true;
 
             await _contactDal.UpdateAsync(contact);

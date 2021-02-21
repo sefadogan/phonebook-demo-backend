@@ -18,7 +18,7 @@ namespace Sefd.Phonebook.Core.DataAccess.EntityFramework
         private readonly DbSet<TEntity> _dbSet;
         #endregion
 
-        #region Construction Member
+        #region Constructors
         public EfEntityRepositoryBase()
         {
             _context = new TContext();
